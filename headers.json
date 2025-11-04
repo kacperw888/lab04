@@ -1,0 +1,42 @@
+[
+  {
+    "url": "http://google.com",
+    "status": 200,
+    "final_url": "http://www.google.com/",
+    "server": "gws",
+    "content_type": "text/html; charset=ISO-8859-1",
+    "content_length": null
+  },
+  {
+    "url": "http://youtube.com",
+    "status": 200,
+    "final_url": "https://www.youtube.com/",
+    "server": "ESF",
+    "content_type": "text/html; charset=utf-8",
+    "content_length": null
+  },
+  {
+    "url": "http://scanme.nmap.org",
+    "status": 200,
+    "final_url": "http://scanme.nmap.org/",
+    "server": "Apache/2.4.7 (Ubuntu)",
+    "content_type": "text/html",
+    "content_length": "2068"
+  },
+  {
+    "url": "http://example.com",
+    "status": 200,
+    "final_url": "http://example.com/",
+    "server": null,
+    "content_type": "text/html",
+    "content_length": "363"
+  },
+  {
+    "url": "http://httpbin.org",
+    "status": 503,
+    "final_url": "http://httpbin.org/",
+    "server": "awselb/2.0",
+    "content_type": "text/html",
+    "content_length": "162"
+  }
+]

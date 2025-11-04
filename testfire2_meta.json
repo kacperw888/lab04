@@ -1,0 +1,50 @@
+{
+  "url": "https://demo.testfire.net/login.jsp",
+  "title": "Altoro Mutual",
+  "meta_description": null,
+  "forms": [
+    {
+      "method": "GET",
+      "action": "https://demo.testfire.net/search.jsp",
+      "inputs": [
+        {
+          "name": "query",
+          "type": "text",
+          "value": null
+        },
+        {
+          "name": null,
+          "type": "submit",
+          "value": "Go"
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "action": "https://demo.testfire.net/doLogin",
+      "inputs": [
+        {
+          "name": "uid",
+          "type": "text",
+          "value": ""
+        },
+        {
+          "name": "passw",
+          "type": "password",
+          "value": null
+        },
+        {
+          "name": "btnSubmit",
+          "type": "submit",
+          "value": "Login"
+        }
+      ]
+    }
+  ],
+  "keyword_counts": {
+    "admin": 0,
+    "login": 2,
+    "debug": 0,
+    "error": 0
+  }
+}

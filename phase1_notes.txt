@@ -1,0 +1,46 @@
+1. HTTP/1.1 200 OK, the http request was succeeded and the server successfully returned the requested page headers.
+
+2. Apache/2.4.7 (Ubuntu) this header reveals the web server software and version used by the host.
+It is specific, not generic, because it gives: The software name: Apache, The version: 2.4.7, The operating system: Ubuntu
+
+1. Go ahead and ScanMe!
+2. <form class="nst-search" id="nst-head-search" action="/search/">
+    <input class="nst-search-q" name="q" type="search" placeholder="Site Search">
+    <button class="nst-search-button" title="Search">
+     <img style="width:100%;aspect-ratio:1/1;" alt="" aria-hidden="true"
+      src="/shared/images/nst-icons.svg#search">
+     </button>
+   </form>
+
+    This is a search form part of a website’s header. It lets users type a search query and submit it to the server.
+
+1. Did requests and curl report the same status and server header?
+→ Yes. Both reported HTTP 200 OK and the Server header "Apache/2.4.7 (Ubuntu)".
+
+If different, what header or other factor might explain it?
+→ In general, differences could happen because:
+   - requests follows redirects automatically, while curl -I does not unless -L is used;
+   - requests sends a GET request, while curl -I sends a HEAD request;
+   - User-Agent strings differ (servers may serve different pages depending on client);
+
+1. Did the response change (status, server header, content-length) when the User-Agent was MyTestAgent/1.0?
+→ No, the status (200 OK) and server header (gunicorn/19.9.0) were identical. 
+   The only difference was the Content-Length, which changed slightly because 
+   the JSON body contained a different User-Agent string.
+
+2. If it had changed, what could that mean about the server’s defenses?
+→ Changes in status or response could indicate that the server or a web 
+   application firewall inspects the User-Agent header. Some servers block or 
+   modify responses for known scanning tools or bots as a form of defense, 
+   to reduce automated probing or scraping activity.
+   
+
+
+
+The most useful reconnaissance details were: 
+(1) the HTTP status line, which shows whether a host is reachable and what protocol version it uses.
+(2) the Server header, which reveals software and version information valuable for vulnerability analysis.
+(3) redirect or final URL behavior, which shows how the site handles traffic and may expose additional endpoints.  
+These help identify the target’s technology stack and configuration.  
+As a defensive measure, administrators can minimize information leakage by removing or generalizing the Server header 
+(e.g., using "Server: web" instead of "Apache/2.4.7 (Ubuntu)") or by placing a reverse proxy that strips identifying headers.
